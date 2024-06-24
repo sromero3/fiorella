@@ -1,0 +1,51 @@
+<!-- Page...: login.html
+Father.: base.html
+Content: formulario de login
+-->
+
+{% extends 'app_admon/base.html' %}
+{% load static %}
+
+{% block title %}
+Firella | Login
+{% endblock %}
+
+{% block content %}
+
+<main id="main2" class="main fondo-difuminado">
+    <!-- ======= Login Section ======= -->
+    <section class="contact login-img" style="height: 580px;display: flex;align-items: center;">
+        <div class="container">
+            <section id="contact">
+                <article class="card-body mx-auto" style="max-width: 350px; margin-top: 80px;">
+                    <div class="login-form">
+                        <div class="col-lg-12 col-sm-12 mt-5 mt-lg-0">
+                            <form action="" method="post" class="form-control">
+                                {% csrf_token %}
+                                <h5 class="card-title-center" style="padding-top: 30px;">Iniciar sesión</h5>
+                                {% for field in form %}
+                                <div class="mx-auto pb-3" style="width: 200px;">
+                                    <!-- {% include 'registration/form_icons.html' %} -->
+                                    {{field}}
+                                </div>
+                                <div class="form-group">
+                                    {% for error in field.errors %}
+                                    <p>{{ error }}</p>
+                                    {% endfor %}
+                                </div>
+                                {% endfor %}
+                                <div class="text-center pt-3" style="padding-bottom: 30px;">
+                                    <button type="submit" class="btn btn-dark rounded-pill">Entrar</button>
+                                </div>
+                                <!-- <p class="text-center pt-4">Olvido su Cotraseña? <a href="">Recuperar</a> </p> -->
+                            </form>
+                            {% include 'app_admon/list_errors.html' %}
+                        </div>
+                    </div>
+                </article>
+                <!--</div>-->
+            </section><!-- End Contact Section -->
+        </div>
+    </section>
+</main>
+{% endblock content %}

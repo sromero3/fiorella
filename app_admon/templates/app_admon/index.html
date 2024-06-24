@@ -1,0 +1,82 @@
+<!--
+Page...: index.html:
+Father.: base.html
+Content: carrusel de imagenes de marketing
+-->
+{% extends 'app_admon/base.html' %}
+{% load static %}
+
+{% block title %}
+Fiorella | Index
+{% endblock %}
+
+{% block content %}
+
+<main id="main2" class="main fondo-difuminado">
+  
+  <div class="row" style="padding-top: 220px;">
+    <div class="col-5">
+    </div>
+
+    <div class="col-2 text-center" style="width: 100%;">
+      <br>
+      <h1 align="center"><span id="saludo" ></span></h1>
+      <h5 align="center"><span id="f"></span></h5>
+      <h2 class="clockf"><span id="h"></span></h2>
+
+      <a href="{% url 'login' %}" class="a-btn">Ingresar</a>
+    </div>
+
+    <div class="col-5">
+    </div>
+  </div>
+
+</main><!-- End #main -->
+
+{% endblock content %}
+{% block Scripts_Adicionales %}
+<script>
+// Funciones para mostra la hora
+        mostrar_hora();
+        repetirCadaMinuto();
+
+        // Funcion feha y hora
+        function mostrar_hora() {
+        
+            let hoy = new Date();
+            let options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            let fecha = hoy.toLocaleString(undefined, options);
+            if (hoy.getMinutes() < 10) {
+                hoyMin = hoy.getMinutes();
+                let minString = hoyMin.toString();
+                var min = "0" + minString;
+            }
+            else {
+                var min = hoy.getMinutes();
+            }
+            let hora = hoy.getHours() + ':' + min;
+            let ho = hoy.getHours()
+            h.innerHTML = hora;
+            f.innerHTML = fecha;
+            if (ho >= 12) {
+                document.getElementById("saludo").innerHTML = "!Buenas tardes!";
+                if (ho >= 18) {
+                    document.getElementById("saludo").innerHTML = "!Buenas noches!";
+                }
+            } else {
+                document.getElementById("saludo").innerHTML = "!Buenos dias!";
+            }
+        }
+        // Funcion para recargara la hora
+        function repetirCadaMinuto() {
+            identificadorIntervaloDeTiempo = setInterval(() => {
+                mostrar_hora();
+            }, 60 * 1000);
+        }
+      </script>
+      {% endblock Scripts_Adicionales %}

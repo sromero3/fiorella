@@ -1,0 +1,104 @@
+<!-- layout.html -->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+    <meta content="" name="">
+    <meta content="" name="">
+
+    <!-- Favicons icono de la pestaña -->
+    <link href="{% static 'app_admon/custom-files/img/difuminado.jpg' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'app_admon/custom-files/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'app_admon/custom-files/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+    <!-- Estilos CSS Personalizados -->
+    <link href="{% static 'app_admon/custom-files/css/style.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'app_admon/fontawesome-free/css/all.min.css' %}" />
+
+    <!-- Estilos sweetalert2 -->
+    <link rel="stylesheet" href="{% static 'app_admon/custom-files/css/sweetalert2.css' %}" />
+
+    <!-- Estilos de los DataTables -->
+    <link rel="stylesheet" href="{% static 'app_admon/DataTables/datatables.css' %}" />
+
+    <!-- Estilos adicionales de pagina hija-->
+    {% block styles %}
+    {% endblock styles %}
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+
+    {% if request.user.profile.rango == "Usuario" %}
+    {% include 'app_admon/navbar-menu2.html' %}
+    {% else %}
+    {% include 'app_admon/navbar-menu.html' %}
+    {% endif %}
+
+    {% include 'app_admon/mensajes.html' %} <!-- Gestor demensajes del backend -->
+
+    <!-- ======= Content ======= -->
+    {% block content %}
+    {% endblock content %}
+
+    <!-- ======= Footer ======= -->
+    {% include 'app_admon/footer.html' %}
+
+    <!-- ======= Flecha ir al top ======= -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <!-- ======= Archivos JavaScript ======== -->
+    <!-- Vendor JS Files -->
+    <script src="{% static 'app_admon/custom-files/vendor/apexcharts/apexcharts.min.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/chart.js/chart.umd.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/echarts/echarts.min.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/quill/quill.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/tinymce/tinymce.min.js' %}"></script>
+    <script src="{% static 'app_admon/custom-files/vendor/php-email-form/validate.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src="{% static 'app_admon/custom-files/js/main.js' %}"></script>
+
+    <!-- sweetalert scripts -->
+    <script src="{% static 'app_admon/custom-files/js/sweetalert2.js' %}"></script>
+
+    <!-- DataTables scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <scrip src="{% static 'app_admon/DataTables/datatables.js' %}" />
+    </script>
+
+    <!-- Funciones scripts -->
+    <script src="{% static 'app_admon/custom-files/js/funciones.js' %}"></script>
+
+    <!-- Archivos JS adicionales de paginas hijas -->
+    {% block Scripts_Adicionales %}
+    {% endblock Scripts_Adicionales %}
+</body>
+
+</html>
