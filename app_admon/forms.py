@@ -30,8 +30,8 @@ class Agregar_clienteForm(ModelForm):
     #     self.fields['nacimiento'].widget.attrs.update(
     #         {'style': 'width: 340px'})
          
-    ced_rif = forms.CharField(widget=forms.TextInput(attrs={'style': 'width: 250px; border-radius: 0px 25px 25px 0px'}))
-    # telefono = forms.CharField(widget=forms.TextInput(attrs={'style': 'width: 200px; border-radius: 0px 25px 25px 0px'}))
+    ced_rif = forms.CharField(widget=forms.TextInput(attrs={'style': 'border-left: 0px;border-radius: 0px 25px 25px 0px'}))
+    telefono = forms.CharField(widget=forms.TextInput(attrs={'style': 'border-left: 0px;border-radius: 0px 25px 25px 0px'}))
     nacimiento = forms.DateField(widget=DateInput)
       
     

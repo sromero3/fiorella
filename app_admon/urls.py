@@ -11,8 +11,9 @@ urlpatterns = [
        ), name="login"),
 
     path('inicio/', views.inicioView, name='inicio'),
+    
     path('clientes/', views.clientesView, name='clientes'),
-
     path('add_cliente/', views.add_clienteView, name='add_cliente'),
-
+    
+    path('colaboradoras/', views.colaboradorasView, name='colaboradoras'),
 ]

@@ -1363,3 +1363,8 @@ h6 {
   border-radius: 0;
   font-weight: 600;
 }
+
+.ho:focus{
+     margin-right: 2px;
+         
+} 

@@ -19,7 +19,7 @@ def inicioView(request):
         }
     return render(request, 'app_admon/inicio.html', context)
 
-# clientes - Lista de  clientes para crud -
+
 @login_required
 def clientesView(request):
     xUsuario = request.user
@@ -73,4 +73,15 @@ def add_clienteView(request):
     }
     return render(request, 'app_admon/cliente_crud.html', context)
 
+@login_required
+def colaboradorasView(request):
+    xUsuario = request.user
+
+    xColaboradoras = Colaborador.objects.values('id','ced_rif','nombre','telefono','instagram','nacimiento','status__status').filter(status=2)
+    
+    context = {
+        'xUsuario': xUsuario,
+        'xColaboradoras': xColaboradoras
+    }
+    return render(request, 'app_admon/colaboradoras.html', context)
 

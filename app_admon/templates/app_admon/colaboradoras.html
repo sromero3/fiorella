@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-Fiorella | Clientes
+Fiorella | Colaboradoras
 {% endblock %}
 
 {% block styles %}
@@ -15,7 +15,7 @@ Fiorella | Clientes
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-                <h5 align="center" class="h5-suave">Clientes</h5>
+                <h5 align="center" class="h5-suave">Colaboradoras</h5>
             </div>
             <div class="col-md-4">
                 <a href="{% url 'inicio' %}" class="float-end">
@@ -29,8 +29,7 @@ Fiorella | Clientes
             </a>
             
         </div>
-        
-        <table id="clientes" class="table  table-bordered table-hover " style="width:100%;">
+        <table id="colaboradoras" class="table  table-bordered table-hover " style="width:100%">
             
             <thead>
                 <tr>
@@ -49,14 +48,14 @@ Fiorella | Clientes
             </thead>
             <tbody>
                 
-                {% for xCliente in xClientes %}
+                {% for xColaboradora in xColaboradoras %}
                 <tr>
-                    <td>{{xCliente.ced_rif}}</td>
-                    <td>{{xCliente.nombre|truncatechars:22}}</td>
-                    <td>{{xCliente.telefono}}</td>
-                    <td>{{xCliente.instagram}}</td>
-                    <td>{{xCliente.nacimiento}}</td>
-                    <td>{{xCliente.status__status}}</td>
+                    <td>{{xColaboradora.ced_rif}}</td>
+                    <td>{{xColaboradora.nombre|truncatechars:22}}</td>
+                    <td>{{xColaboradora.telefono}}</td>
+                    <td>{{xColaboradora.instagram}}</td>
+                    <td>{{xColaboradora.nacimiento}}</td>
+                    <td>{{xColaboradora.status__status}}</td>
                     <td class="text-center" style="width:50px">
                         <a  href="#">
                             <i class="fas fa-pencil-alt h"></i>
@@ -78,7 +77,7 @@ Fiorella | Clientes
 {% block Scripts_Adicionales %}
 <script>
     $(function () {
-        $("#clientes").DataTable({
+        $("#colaboradoras").DataTable({
             language: {
                 "sProcessing": "Procesando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",
@@ -114,7 +113,7 @@ Fiorella | Clientes
             "scrollX" : true,
             "order": [[1, "asc"]],
             "columnDefs": [{
-                "targets": [0, 2, 3, 6 ],
+                "targets": [0, 2, 3 ],
                 "orderable": false
             }]
 

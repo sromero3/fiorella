@@ -31,9 +31,9 @@ Atico | Cliente_crud
              <div class="row" style="margin-bottom: 10px">
                  <div class="col-md-6">
                      <span class="titulos">Cédula/Rif</span><br>
-                     <div class="col-md-6 d-flex" >
-                         <select name="prefijo_r" id="prefijo_r" class="form-control"
-                             style="border-right: 0px; width: 102px ;border-radius: 25px 0px 0px 25px" required>
+                     <div class="col-md-12 d-flex">
+                         <select name="prefijo_r" id="prefijo_r" class="form-control ho"
+                             style="width: 105px ;border-radius: 25px 0px 0px 25px" required>
                              <option id="-1" value="">Seleccione</option>
                              {% for xPre_ced_rif in xPrefijos_ced_rif %}
                              <option id={{xPre_ced_rif}}>
@@ -54,8 +54,10 @@ Atico | Cliente_crud
              <div class="row" style="margin-bottom: 10px">
                  <div class="col-md-6">
                      <span class="titulos">Télefono</span><br>
-                     <div class="col-md-3 float-start">
-                         <select name="prefijo" id="prefijo" class="form-control float-start" style="border-right: 0px; width: 140px ;border-radius: 25px 0px 0px 25px"  required>
+                     <div class="col-md-12 d-flex">
+                        
+                         <select name="prefijo" id="prefijo" class="form-control ho" 
+                            style="width: 105px; border-radius: 25px 0px 0px 25px" required>
                              <option id="-1" value="">Seleccione</option>
                              {% for xPre_telefono in xPrefijos %}
                              <option id={{xPre_telefono}}>
@@ -63,10 +65,8 @@ Atico | Cliente_crud
                              </option>
                              {% endfor %}
                          </select>
-                     </div>
-                     <div class="col-md-9 float-start">
                          {{form.telefono}}
-                     </div>
+                    </div>
                  </div>
                  <div class="col-md-6">
                      <span class="titulos">
